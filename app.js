@@ -1,5 +1,5 @@
 const projectsContainer = document.getElementById("projects");
-const GITHUB_USER = "Slawson25"; // <-- your real GitHub username
+const GITHUB_USER = "Slawson25"; // 
 
 async function loadProjects() {
   try {
