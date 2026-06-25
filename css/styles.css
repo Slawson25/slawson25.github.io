@@ -84,9 +84,10 @@ h2 {
 @media (min-width: 800px) {
   .columns {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .col {
-    flex: 1;
+    flex: 1 1 calc(50% - 20px);
   }
 }
