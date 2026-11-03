@@ -25,19 +25,37 @@
             <span>QUEST: EXPLORE THE WORLD</span>
         </div>
 
-        <section class="game-screen">
+        
+<section class="game-screen">
 
-            <canvas id="gameCanvas">
-                Your browser does not support HTML Canvas.
-            </canvas>
+    <canvas id="gameCanvas">
+        Your browser does not support HTML Canvas.
+    </canvas>
 
-            <div class="game-message" id="gameMessage">
-                <h2>Welcome, Adventurer!</h2>
-                <p>Your developer journey starts here.</p>
-                <button id="startButton">Start Adventure</button>
-            </div>
+    <div class="game-message" id="gameMessage">
+        <h2>Welcome, Adventurer!</h2>
+        <p>Your developer journey starts here.</p>
+        <button id="startButton">Start Adventure</button>
+    </div>
 
-        </section>
+    <!-- Interaction prompt -->
+    <div class="interaction-prompt" id="interactionPrompt">
+        Press SPACE to interact
+    </div>
+
+    <!-- Portfolio information window -->
+    <div class="portfolio-window" id="portfolioWindow">
+
+        <button class="close-window" id="closeWindow">X</button>
+
+        <h2 id="windowTitle">Portfolio</h2>
+
+        <div id="windowContent"></div>
+
+    </div>
+
+</section>
+
 
         <nav class="game-controls">
             <p>WASD / Arrow Keys: Move</p>

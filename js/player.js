@@ -1,18 +1,34 @@
 
-// Create our player
+// Player information
 export const player = {
     x: 240,
     y: 245,
     width: 16,
     height: 20,
-    speed: 2
+    speed: 2,
+
+    // Character direction
+    direction: "down",
+
+    // Animation information
+    walkFrame: 0,
+    moving: false
 };
+
 
 // Draw the player character
 export function drawPlayer(ctx) {
 
-    const x = player.x;
-    const y = player.y;
+    const x = Math.round(player.x);
+    const y = Math.round(player.y);
+
+    // Animation leg positions
+    const walking = player.moving;
+    const frame = walking ? Math.floor(player.walkFrame / 8) % 2 : 0;
+
+    // Shadow
+    ctx.fillStyle = "#46613d";
+    ctx.fillRect(x + 2, y + 19, 12, 3);
 
     // Hair
     ctx.fillStyle = "#49301f";
@@ -24,8 +40,25 @@ export function drawPlayer(ctx) {
 
     // Eyes
     ctx.fillStyle = "#222222";
-    ctx.fillRect(x + 5, y + 6, 2, 2);
-    ctx.fillRect(x + 10, y + 6, 2, 2);
+
+    if (player.direction === "down") {
+        ctx.fillRect(x + 5, y + 6, 2, 2);
+        ctx.fillRect(x + 10, y + 6, 2, 2);
+    }
+
+    if (player.direction === "left") {
+        ctx.fillRect(x + 4, y + 6, 2, 2);
+    }
+
+    if (player.direction === "right") {
+        ctx.fillRect(x + 11, y + 6, 2, 2);
+    }
+
+    // Back of head when facing up
+    if (player.direction === "up") {
+        ctx.fillStyle = "#49301f";
+        ctx.fillRect(x + 4, y + 3, 8, 7);
+    }
 
     // Shirt
     ctx.fillStyle = "#2563a6";
@@ -38,16 +71,29 @@ export function drawPlayer(ctx) {
 
     // Pants
     ctx.fillStyle = "#303b55";
-    ctx.fillRect(x + 4, y + 16, 8, 3);
+
+    if (walking && frame === 1) {
+        ctx.fillRect(x + 3, y + 16, 4, 3);
+        ctx.fillRect(x + 10, y + 16, 4, 3);
+    } else {
+        ctx.fillRect(x + 4, y + 16, 8, 3);
+    }
 
     // Shoes
     ctx.fillStyle = "#49301f";
-    ctx.fillRect(x + 3, y + 19, 4, 1);
-    ctx.fillRect(x + 9, y + 19, 4, 1);
+
+    if (walking && frame === 1) {
+        ctx.fillRect(x + 2, y + 19, 4, 1);
+        ctx.fillRect(x + 10, y + 18, 4, 1);
+    } else {
+        ctx.fillRect(x + 3, y + 19, 4, 1);
+        ctx.fillRect(x + 9, y + 19, 4, 1);
+    }
+
 }
 
 
-// Check whether two rectangles overlap
+// Collision detection
 function isColliding(rect1, rect2) {
 
     return (
@@ -59,7 +105,8 @@ function isColliding(rect1, rect2) {
 
 }
 
-// Move the player with collision detection
+
+// Update player movement
 export function updatePlayer(keys, obstacles) {
 
     let moveX = 0;
@@ -68,22 +115,32 @@ export function updatePlayer(keys, obstacles) {
     // Horizontal movement
     if (keys["ArrowLeft"] || keys["a"] || keys["A"]) {
         moveX -= player.speed;
+        player.direction = "left";
     }
 
     if (keys["ArrowRight"] || keys["d"] || keys["D"]) {
         moveX += player.speed;
+        player.direction = "right";
     }
 
     // Vertical movement
     if (keys["ArrowUp"] || keys["w"] || keys["W"]) {
         moveY -= player.speed;
+        player.direction = "up";
     }
 
     if (keys["ArrowDown"] || keys["s"] || keys["S"]) {
         moveY += player.speed;
+        player.direction = "down";
     }
 
-    // Try horizontal movement
+    // Prevent faster diagonal movement
+    if (moveX !== 0 && moveY !== 0) {
+        moveX *= Math.SQRT1_2;
+        moveY *= Math.SQRT1_2;
+    }
+
+    // Check horizontal collision
     const nextX = {
         x: player.x + moveX,
         y: player.y,
@@ -91,15 +148,11 @@ export function updatePlayer(keys, obstacles) {
         height: player.height
     };
 
-    const hitHorizontal = obstacles.some(obstacle =>
-        isColliding(nextX, obstacle)
-    );
-
-    if (!hitHorizontal) {
+    if (!obstacles.some(obstacle => isColliding(nextX, obstacle))) {
         player.x = nextX.x;
     }
 
-    // Try vertical movement
+    // Check vertical collision
     const nextY = {
         x: player.x,
         y: player.y + moveY,
@@ -107,18 +160,21 @@ export function updatePlayer(keys, obstacles) {
         height: player.height
     };
 
-    const hitVertical = obstacles.some(obstacle =>
-        isColliding(nextY, obstacle)
-    );
-
-    if (!hitVertical) {
+    if (!obstacles.some(obstacle => isColliding(nextY, obstacle))) {
         player.y = nextY.y;
     }
 
-    // Keep player inside game boundaries
+    // Keep player inside the map
     player.x = Math.max(0, Math.min(480 - player.width, player.x));
-
     player.y = Math.max(0, Math.min(272 - player.height, player.y));
 
-}
+    // Track movement for animation
+    player.moving = moveX !== 0 || moveY !== 0;
 
+    if (player.moving) {
+        player.walkFrame++;
+    } else {
+        player.walkFrame = 0;
+    }
+
+}
