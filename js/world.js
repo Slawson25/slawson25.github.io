@@ -1,4 +1,34 @@
 
+// Collision areas for trees and buildings
+export const obstacles = [
+
+    // Trees
+    { x: 28, y: 25, width: 24, height: 29 },
+    { x: 68, y: 65, width: 24, height: 29 },
+    { x: 113, y: 20, width: 24, height: 29 },
+    { x: 168, y: 45, width: 24, height: 29 },
+    { x: 303, y: 25, width: 24, height: 29 },
+    { x: 368, y: 55, width: 24, height: 29 },
+    { x: 428, y: 20, width: 24, height: 29 },
+    { x: 28, y: 135, width: 24, height: 29 },
+    { x: 78, y: 145, width: 24, height: 29 },
+    { x: 353, y: 140, width: 24, height: 29 },
+    { x: 423, y: 130, width: 24, height: 29 },
+    { x: 68, y: 235, width: 24, height: 29 },
+    { x: 148, y: 240, width: 24, height: 29 },
+    { x: 333, y: 235, width: 24, height: 29 },
+    { x: 423, y: 235, width: 24, height: 29 },
+
+    // Buildings
+    { x: 50, y: 75, width: 86, height: 50 },
+    { x: 345, y: 75, width: 86, height: 50 },
+    { x: 50, y: 150, width: 86, height: 50 },
+    { x: 345, y: 150, width: 86, height: 50 }
+
+];
+
+
+
 export function drawWorld(ctx) {
 
     // Game world dimensions
