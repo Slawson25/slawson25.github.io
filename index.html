@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shawn Lawson | Developer Quest</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header class="game-header">
+        <h1>Shawn Lawson</h1>
+        <p>Developer Quest</p>
+    </header>
+
+    <main class="game-container">
+
+        <div class="game-hud">
+            <span>PLAYER: SHAWN</span>
+            <span>LEVEL: 01</span>
+            <span>QUEST: EXPLORE THE WORLD</span>
+        </div>
+
+        <section class="game-screen">
+
+            <canvas id="gameCanvas">
+                Your browser does not support HTML Canvas.
+            </canvas>
+
+            <div class="game-message" id="gameMessage">
+                <h2>Welcome, Adventurer!</h2>
+                <p>Your developer journey starts here.</p>
+                <button id="startButton">Start Adventure</button>
+            </div>
+
+        </section>
+
+        <nav class="game-controls">
+            <p>WASD / Arrow Keys: Move</p>
+            <p>SPACE / ENTER: Interact</p>
+            <p>CLICK: Explore</p>
+        </nav>
+
+        <div class="portfolio-menu">
+            <button id="portfolioButton">Traditional Portfolio</button>
+        </div>
+
+    </main>
+
+    <script type="module" src="/js/app.js"></script>
+
+</body>
+</html>
