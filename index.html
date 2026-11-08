@@ -5,69 +5,284 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Shawn Lawson | Developer Quest</title>
+    <meta name="description" content="Shawn Lawson - Software Developer Portfolio">
+
+    <title>Shawn Lawson | Developer Command Center</title>
 
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-    <header class="game-header">
-        <h1>Shawn Lawson</h1>
-        <p>Developer Quest</p>
-    </header>
+    <div class="command-center">
 
-    <main class="game-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
 
-        <div class="game-hud">
-            <span>PLAYER: SHAWN</span>
-            <span>LEVEL: 01</span>
-            <span>QUEST: EXPLORE THE WORLD</span>
-        </div>
+            <div class="brand">
+                <span class="brand-icon">SL</span>
+                <div>
+                    <h2>SHAWN LAWSON</h2>
+                    <p>DEVELOPER CENTER</p>
+                </div>
+            </div>
 
-        
-<section class="game-screen">
+            <nav class="sidebar-nav">
+                <p class="nav-label">WORKSPACE</p>
 
-    <canvas id="gameCanvas">
-        Your browser does not support HTML Canvas.
-    </canvas>
+                <a href="#overview" class="nav-link active">
+                    <span>01</span> Overview
+                </a>
 
-    <div class="game-message" id="gameMessage">
-        <h2>Welcome, Adventurer!</h2>
-        <p>Your developer journey starts here.</p>
-        <button id="startButton">Start Adventure</button>
+                <a href="#projects" class="nav-link">
+                    <span>02</span> Projects
+                </a>
+
+                <a href="#skills" class="nav-link">
+                    <span>03</span> Technologies
+                </a>
+
+                <a href="#about" class="nav-link">
+                    <span>04</span> About Me
+                </a>
+
+                <p class="nav-label">CONNECT</p>
+
+                <a href="projects.html" class="nav-link">
+                    <span>↗</span> Project Archive
+                </a>
+
+                <a href="resume.html" class="nav-link">
+                    <span>↗</span> Resume
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <span class="status-indicator"></span>
+                Portfolio System Online
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+                <div>
+                    <p class="breadcrumb">WORKSPACE / OVERVIEW</p>
+                </div>
+
+                <div class="system-status">
+                    <span class="status-indicator"></span>
+                    SYSTEM ONLINE
+                </div>
+            </header>
+
+
+            <!-- OVERVIEW -->
+            <section class="hero-section" id="overview">
+
+                <div class="hero-content">
+                    <p class="section-eyebrow">
+                        SOFTWARE DEVELOPER PORTFOLIO
+                    </p>
+
+                    <h1>
+                        Building practical software
+                        <span>that solves real problems.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Welcome to my developer command center.
+                        Explore my projects, technologies, and
+                        the work behind the code.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#projects" class="primary-button">
+                            Explore Projects
+                        </a>
+
+                        <a href="resume.html" class="secondary-button">
+                            View Resume
+                        </a>
+                    </div>
+                </div>
+
+                <div class="profile-panel">
+                    <div class="panel-header">
+                        <span>DEVELOPER PROFILE</span>
+                        <span class="panel-dots">● ● ●</span>
+                    </div>
+
+                    <div class="profile-avatar">SL</div>
+
+                    <h2>Shawn Lawson</h2>
+                    <p>Software Developer</p>
+
+                    <div class="profile-divider"></div>
+
+                    <div class="profile-detail">
+                        <span>FOCUS</span>
+                        <strong>Web Development</strong>
+                    </div>
+
+                    <div class="profile-detail">
+                        <span>ENVIRONMENT</span>
+                        <strong>Frontend / Backend</strong>
+                    </div>
+
+                    <div class="profile-detail">
+                        <span>STATUS</span>
+                        <strong class="online-text">Building & Learning</strong>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- PROJECTS -->
+            <section class="content-section" id="projects">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="section-eyebrow">PORTFOLIO DATABASE</p>
+                        <h2>Featured Projects</h2>
+                    </div>
+
+                    <a href="projects.html" class="text-link">
+                        View All Projects →
+                    </a>
+                </div>
+
+                <div class="project-grid">
+
+                    <article class="project-card featured-project">
+                        <div class="project-topline">
+                            <span>FEATURED PROJECT</span>
+                            <span class="project-number">01</span>
+                        </div>
+
+                        <div class="project-visual">
+                            <span>HVAC</span>
+                        </div>
+
+                        <h3>HVAC Service Portal</h3>
+
+                        <p>
+                            A service management application
+                            designed to organize technician
+                            access and service tickets.
+                        </p>
+
+                        <div class="tech-tags">
+                            <span>React</span>
+                            <span>JavaScript</span>
+                            <span>CSS</span>
+                        </div>
+
+                        <a href="projects.html" class="project-link">
+                            Explore Project →
+                        </a>
+                    </article>
+
+
+                    <article class="project-card">
+                        <div class="project-topline">
+                            <span>WEB DEVELOPMENT</span>
+                            <span class="project-number">02</span>
+                        </div>
+
+                        <div class="project-visual visual-blue">
+                            <span>WEB</span>
+                        </div>
+
+                        <h3>GitHub Project Explorer</h3>
+
+                        <p>
+                            A project exploring the GitHub API
+                            to retrieve and display repository
+                            information.
+                        </p>
+
+                        <div class="tech-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <a href="projects.html" class="project-link">
+                            Explore Project →
+                        </a>
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- TECHNOLOGIES -->
+            <section class="content-section" id="skills">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="section-eyebrow">DEVELOPMENT ENVIRONMENT</p>
+                        <h2>Technologies & Tools</h2>
+                    </div>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-card">HTML5</div>
+                    <div class="skill-card">CSS3</div>
+                    <div class="skill-card">JavaScript</div>
+                    <div class="skill-card">React</div>
+                    <div class="skill-card">SQL</div>
+                    <div class="skill-card">Node.js</div>
+                    <div class="skill-card">Git & GitHub</div>
+                    <div class="skill-card">VS Code</div>
+                </div>
+
+            </section>
+
+
+            <!-- ABOUT -->
+            <section class="content-section about-section" id="about">
+
+                <p class="section-eyebrow">ABOUT THE DEVELOPER</p>
+
+                <h2>Turning ideas into working applications.</h2>
+
+                <p>
+                    I'm a developer focused on building practical
+                    applications, improving my technical skills,
+                    and solving problems through code.
+
+                    This portfolio is where I showcase my work,
+                    development process, and continued growth.
+                </p>
+
+            </section>
+
+
+            <!-- CONTACT -->
+            <footer class="main-footer" id="contact">
+                <div>
+                    <h3>Let's Connect.</h3>
+                    <p>Interested in my work? Let's talk.</p>
+                </div>
+
+                <a href="https://github.com/Slawson25"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    GitHub Profile ↗
+                </a>
+            </footer>
+
+        </main>
+
     </div>
-
-    <!-- Interaction prompt -->
-    <div class="interaction-prompt" id="interactionPrompt">
-        Press SPACE to interact
-    </div>
-
-    <!-- Portfolio information window -->
-    <div class="portfolio-window" id="portfolioWindow">
-
-        <button class="close-window" id="closeWindow">X</button>
-
-        <h2 id="windowTitle">Portfolio</h2>
-
-        <div id="windowContent"></div>
-
-    </div>
-
-</section>
-
-
-        <nav class="game-controls">
-            <p>WASD / Arrow Keys: Move</p>
-            <p>SPACE / ENTER: Interact</p>
-            <p>CLICK: Explore</p>
-        </nav>
-
-        <div class="portfolio-menu">
-            <button id="portfolioButton">Traditional Portfolio</button>
-        </div>
-
-    </main>
 
     <script type="module" src="/js/app.js"></script>
 

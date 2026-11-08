@@ -1,188 +1,141 @@
 
-import { drawWorld, obstacles } from "./world.js";
+/* =========================================
+   DEVELOPER COMMAND CENTER
+   Dashboard Controller
+========================================= */
 
-import {
-    player,
-    drawPlayer,
-    updatePlayer
-} from "./player.js";
+// LIVE CLOCK
+const clock = document.getElementById("liveClock");
+const dateDisplay = document.getElementById("liveDate");
 
-import {
-    getNearbyLocation,
-    getClickedLocation,
-    openLocation,
-    closeLocation
-} from "./interactions.js";
+function updateClock() {
+    const now = new Date();
 
-// Canvas setup
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = 480;
-canvas.height = 272;
-
-ctx.imageSmoothingEnabled = false;
-
-// Game elements
-const gameMessage = document.getElementById("gameMessage");
-const startButton = document.getElementById("startButton");
-
-const interactionPrompt =
-    document.getElementById("interactionPrompt");
-
-const closeButton =
-    document.getElementById("closeWindow");
-
-const portfolioWindow =
-    document.getElementById("portfolioWindow");
-
-// Keyboard tracking
-const keys = {};
-
-let gameStarted = false;
-let windowOpen = false;
-let nearbyLocation = null;
-
-// Start adventure
-startButton.addEventListener("click", () => {
-
-    gameStarted = true;
-
-    gameMessage.style.display = "none";
-
-});
-
-// Keyboard controls
-window.addEventListener("keydown", (event) => {
-
-    keys[event.key] = true;
-
-    if (
-        ["ArrowUp", "ArrowDown", "ArrowLeft",
-         "ArrowRight", " ", "Enter"].includes(event.key)
-    ) {
-        event.preventDefault();
+    if (clock) {
+        clock.textContent = now.toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit"
+        });
     }
 
-    if (!gameStarted) return;
+    if (dateDisplay) {
+        dateDisplay.textContent = now.toLocaleDateString([], {
+            weekday: "long",
+            month: "long",
+            day: "numeric",
+            year: "numeric"
+        });
+    }
+}
 
-    // Close window with Escape
-    if (event.key === "Escape" && windowOpen) {
+updateClock();
+setInterval(updateClock, 1000);
 
-        closeLocation();
 
-        windowOpen = false;
+// SIDEBAR ACTIVE SECTION
+const navLinks = document.querySelectorAll(".nav-link");
 
+const sections = document.querySelectorAll(
+    "main section[id]"
+);
+
+function updateActiveNavigation() {
+    let currentSection = "";
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+
+        if (window.scrollY >= sectionTop - 180) {
+            currentSection = section.id;
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === `#${currentSection}`) {
+            link.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", updateActiveNavigation);
+
+
+// PROJECT CARD INTERACTIONS
+const projectCards = document.querySelectorAll(".project-card");
+
+projectCards.forEach(card => {
+    card.addEventListener("mouseenter", () => {
+        card.classList.add("project-active");
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.classList.remove("project-active");
+    });
+});
+
+
+// COMMAND CONSOLE
+const commandInput = document.getElementById("commandInput");
+const commandOutput = document.getElementById("commandOutput");
+
+const commands = {
+    help: "Available commands: help, projects, skills, about, github, clear",
+
+    projects: "Loading project directory... Explore the Featured Projects section above.",
+
+    skills: "Technology profile: HTML5, CSS3, JavaScript, React, SQL, Node.js, Git and GitHub.",
+
+    about: "Developer profile: Shawn Lawson. Focus: building practical software applications.",
+
+    github: "GitHub: https://github.com/Slawson25",
+
+    clear: ""
+};
+
+function runCommand(command) {
+    const normalizedCommand = command.trim().toLowerCase();
+
+    if (!normalizedCommand) return;
+
+    if (normalizedCommand === "clear") {
+        commandOutput.innerHTML = "";
         return;
     }
 
-    // Interact with nearby building
-    if (
-        (event.key === " " || event.key === "Enter") &&
-        !windowOpen &&
-        nearbyLocation
-    ) {
+    const response = commands[normalizedCommand] ||
+        `Command not recognized: ${normalizedCommand}. Type "help" for available commands.`;
 
-        openLocation(nearbyLocation);
+    const line = document.createElement("p");
 
-        windowOpen = true;
+    line.className = "console-line";
 
-    }
+    line.textContent = `visitor@shawn:~$ ${normalizedCommand}`;
 
-});
+    const result = document.createElement("p");
 
-// Keyboard release
-window.addEventListener("keyup", (event) => {
+    result.className = "console-result";
 
-    keys[event.key] = false;
+    result.textContent = response;
 
-});
+    commandOutput.appendChild(line);
+    commandOutput.appendChild(result);
 
-// Clear keys when browser loses focus
-window.addEventListener("blur", () => {
-
-    Object.keys(keys).forEach(key => {
-        keys[key] = false;
-    });
-
-});
-
-// Close portfolio window
-closeButton.addEventListener("click", () => {
-
-    closeLocation();
-
-    windowOpen = false;
-
-});
-
-// Click-to-explore
-canvas.addEventListener("click", (event) => {
-
-    if (!gameStarted || windowOpen) return;
-
-    const rect = canvas.getBoundingClientRect();
-
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
-
-    const mouseX = (event.clientX - rect.left) * scaleX;
-    const mouseY = (event.clientY - rect.top) * scaleY;
-
-    const clickedLocation =
-        getClickedLocation(mouseX, mouseY);
-
-    if (clickedLocation) {
-
-        openLocation(clickedLocation);
-
-        windowOpen = true;
-
-    }
-
-});
-
-// Game loop
-function gameLoop() {
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw map
-    drawWorld(ctx);
-
-    if (gameStarted && !windowOpen) {
-
-        updatePlayer(keys, obstacles);
-
-    }
-
-    // Draw player
-    drawPlayer(ctx);
-
-    // Check nearby buildings
-    nearbyLocation = gameStarted && !windowOpen
-        ? getNearbyLocation()
-        : null;
-
-    // Show interaction prompt
-    if (nearbyLocation) {
-
-        interactionPrompt.style.display = "block";
-
-        interactionPrompt.textContent =
-            `SPACE / ENTER: ${nearbyLocation.name}`;
-
-    } else {
-
-        interactionPrompt.style.display = "none";
-
-    }
-
-    requestAnimationFrame(gameLoop);
-
+    commandOutput.scrollTop = commandOutput.scrollHeight;
 }
 
-// Start rendering
-gameLoop();
+if (commandInput && commandOutput) {
+    commandInput.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+            runCommand(commandInput.value);
+            commandInput.value = "";
+        }
+    });
+}
 
-console.log("Developer Quest initialized!");
+
+// INITIALIZATION
+console.log("Developer Command Center initialized.");
+console.log("System status: ONLINE");
