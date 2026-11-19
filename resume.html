@@ -2,115 +2,400 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/index.css"
-    <title>Resume Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume | Shawn Lawson - Developer Command Center</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/resume.css">
 </head>
 
 <body>
-    <main class="container">
-        <section class="header">
-            <h1>Shawn Lawson</h1>
-            <p class="contact">
-                Email:
-                <a href="shawn.lawson@zohomail.com">shawn.lawson@zohomail.com</a>
-                | Phone: 423-856-2146| LinkedIn:
-                <a href="https://www.linkedin.com/in/shawn-lawson-a45591269/">linkedin.com/in/shawn-lawson</a>
-            </p>
-        </section>
-        <section class="section">
-            <h2>Summary</h2>
-            <p>
-                I am known for a supportive coaching style, clear communication, and the ability to deliver
-                practical, scalable solutions across digital and operational environments. With me I bring
-                a mix of creative problem-solving, technical experiences, and people-centered coaching. I building
-                tools that scale, speed up the processes, and elevate both user experience and team performance.
 
-            </p>
-        </section>
-        <section class="section">
-            <h2>Work Experience</h2>
-            <div class="item">
-                <h3>Team Lead - Concentrix</h3>
-                <p>September 2017 - Present</p>
+    <main class="resume-dashboard">
+
+        <!-- TOP NAVIGATION -->
+        <header class="resume-topbar">
+            <a href="index.html" class="resume-brand">
+                <span class="brand-icon">SL</span>
+                <span>DEVELOPER COMMAND CENTER</span>
+            </a>
+
+            <nav class="resume-nav">
+                <a href="index.html">Overview</a>
+                <a href="projects.html">Projects</a>
+                <a href="index.html#skills">Skills</a>
+                <a href="index.html#about">About</a>
+                <a href="resume.html" class="active">Resume</a>
+            </nav>
+        </header>
+
+        <!-- PROFILE HEADER -->
+        <section class="resume-hero">
+
+            <div class="resume-hero-content">
+                <span class="system-label">PROFILE FILE // 001</span>
+
+                <h1>Shawn Lawson</h1>
+
+                <h2>Junior Front-End Developer</h2>
+
                 <p>
-                    Supervised a team of 12+ agents, resolving escalations and driving a 15% increase in customer
-                    satisfaction scores. Conducted performance reviews and coaching sessions to boost productivity and
-                    morale.
+                    Building responsive interfaces, interactive applications,
+                    and practical digital solutions.
+                </p>
+
+                <div class="resume-contact">
+                    <a href="mailto:shawnclawson@hotmail.com">
+                        shawnclawson@hotmail.com
+                    </a>
+
+                    <span>•</span>
+
+                    <a href="tel:+14238562146">
+                        423-856-2146
+                    </a>
+
+                    <span>•</span>
+
+                    <a href="https://www.linkedin.com/in/shawn-lawson-a45591269/"
+                        target="_blank" rel="noopener noreferrer">
+                        LinkedIn Profile
+                    </a>
+                </div>
+
+                <div class="resume-actions">
+                    <a href="assets/Shawn_Lawson_Command_Center_Resume.pdf"
+   class="resume-button"
+   target="_blank"
+   rel="noopener noreferrer">
+    <i class="fas fa-file-pdf"></i>
+    View Resume
+</a>
+
+<a href="assets/Shawn_Lawson_Command_Center_Resume.pdf"
+   class="resume-button secondary"
+   download>
+    <i class="fas fa-download"></i>
+    Download PDF
+</a>
+
+                    <a href="projects.html" class="resume-button secondary">
+                        Explore Projects
+                    </a>
+                </div>
+            </div>
+
+            <div class="profile-status">
+                <span class="status-indicator"></span>
+                <span>DEVELOPER PROFILE</span>
+
+                <div class="profile-status-line"></div>
+
+                <p>LOCATION: PINEVILLE, KY</p>
+                <p>FOCUS: FRONT-END DEVELOPMENT</p>
+                <p>STATUS: PORTFOLIO BUILDER</p>
+            </div>
+
+        </section>
+
+        <!-- PROFESSIONAL SUMMARY -->
+        <section class="resume-section" id="about">
+
+            <div class="section-heading">
+                <span>01</span>
+                <h2>Professional Summary</h2>
+            </div>
+
+            <div class="resume-panel">
+                <p>
+                    Front-end developer building responsive websites and interactive
+                    applications using JavaScript, HTML5, CSS3, and React. Experienced
+                    in developing independent projects, creating user interfaces,
+                    working with application routing, and managing code through Git
+                    and GitHub.
+                </p>
+
+                <p>
+                    Brings additional professional experience in team leadership,
+                    employee training, customer support, communication, and
+                    troubleshooting. Focused on building practical solutions that
+                    improve usability and simplify everyday processes.
                 </p>
             </div>
-            <div class="item">
-                <h3>Program Ready Trainer - Concentrix</h3>
-                <p>September 2017 - Present</p>
-                <p>
-                    Designed and delivered onboarding programs for new hires, improving team readiness and reducing
-                    ramp-up time by 25%. Created interactive training materials tailored to operational goals and
-                    customer service excellence.
-                </p>
-            </div>
-        </section>
-        <div class="section">
-            <h2>Education</h2>
-            <div class="item">
-                <h3>CS50 certificate - Harvard University</h3>
-                <p>Completed in 2025</p>
-            </div>
-            <div class="item">
-                <h3>Bachlors of Science - Union College</h3>
-                <p>Year of Graduation: in progress</p>
-            </div>
-            </section>
-            <section class="section">
-                <h2>Skills</h2>
-                <div class="skills">
-                    <ul>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                        <li>Hardware Troubleshooting & Retro Computing</li>
-                        <li>Team Leadership</li>
-                        <li>TTY Technology & Accessibility</li>
-                    </ul>
-                </div>
-            </section>
-            <a href="projects.html">View Projects</a>
 
-            <section class="section">
-                <h2>Projects</h2>
-                <div class="item">
-                    <h3>Disney Clone Site (front-end Project)</h3>
-                    <p>
-                        The Disney Clone Site is a front-end web development project that replicates the design and
-                        layout of the official Disney website.
-                        Built using HTML, CSS, and JavaScript, this project is some that I created in order to practice
-                        my front-end development skills and showcase
-                        my ability to create visually appealing and responsive web pages. Also was made as a final
-                        project for Harvard CS50 class.
-                    </p>
-                </div>
-                <div class="item">
-                    <h3>Slack-Style Chat Room</h3>
-                    <p>
-                        The Slack-Style Chat Room is a web-based application that mimics the functionality of Slack,
-                        allowing users to create channels, send messages, and collaborate in real-time.
-                        Built using HTML, CSS, and JavaScript, and PHP to store data on the back-end this
-                        project showcases my skills in front-end development and real-time communication technologies.
-                        This project is something that I was building in order to learn more about web development and
-                        real-time applications.
-                    </p>
-                    <div class="item">
-                        <h3>Peter Rabbit Flip Card Game</h3>
-                        <p>
-                            The Peter Rabbit Flip Card Game is a web-based application that allows users to flip cards
-                            and match pairs of Peter Rabbit-themed images.
-                            Built using HTML, CSS, and JavaScript, this project showcases my skills in front-end
-                            development and interactive user experiences.
-                        </p>
+        </section>
+
+        <!-- TECHNICAL SKILLS -->
+        <section class="resume-section" id="skills">
+
+            <div class="section-heading">
+                <span>02</span>
+                <h2>Technical Skills</h2>
+            </div>
+
+            <div class="resume-skills-grid">
+
+                <article class="skill-panel">
+                    <span class="panel-label">01 // LANGUAGES</span>
+                    <h3>Core Technologies</h3>
+                    <div class="skill-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>SQL Fundamentals</span>
                     </div>
-            </section>
-    </main>
-</body>
+                </article>
 
+                <article class="skill-panel">
+                    <span class="panel-label">02 // FRAMEWORKS</span>
+                    <h3>Front-End Development</h3>
+                    <div class="skill-tags">
+                        <span>React</span>
+                        <span>React Router</span>
+                        <span>Responsive Design</span>
+                        <span>Flexbox</span>
+                        <span>CSS Grid</span>
+                    </div>
+                </article>
+
+                <article class="skill-panel">
+                    <span class="panel-label">03 // DEVELOPMENT TOOLS</span>
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-tags">
+                        <span>Git</span>
+                        <span>GitHub</span>
+                        <span>VS Code</span>
+                        <span>Vercel</span>
+                        <span>GitHub Pages</span>
+                        <span>Bash / CLI</span>
+                    </div>
+                </article>
+
+                <article class="skill-panel">
+                    <span class="panel-label">04 // ADDITIONAL SKILLS</span>
+                    <h3>Professional Strengths</h3>
+                    <div class="skill-tags">
+                        <span>Hardware Troubleshooting</span>
+                        <span>Team Leadership</span>
+                        <span>Employee Training</span>
+                        <span>TTY Accessibility</span>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- WORK EXPERIENCE -->
+        <section class="resume-section">
+
+            <div class="section-heading">
+                <span>03</span>
+                <h2>Professional Experience</h2>
+            </div>
+
+            <div class="resume-panel experience-panel">
+
+                <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+
+                    <div>
+                        <span class="panel-label">TEAM LEADERSHIP</span>
+                        <h3>Team Lead / Program Ready Trainer / SME</h3>
+                        <h4>Concentrix</h4>
+                        <p class="resume-date">September 2017 – 2025</p>
+
+                        <ul>
+                            <li>
+                                Led and supported a team of agents, providing
+                                coaching, day-to-day guidance, and assistance
+                                with customer issues and escalations.
+                            </li>
+
+                            <li>
+                                Trained incoming employees on job responsibilities,
+                                procedures, customer interactions, and workplace tools.
+                            </li>
+
+                            <li>
+                                Helped prepare new employees' Mac mini workstations
+                                and supported access to required systems and applications.
+                            </li>
+
+                            <li>
+                                Served as a subject matter expert, helping colleagues
+                                understand processes and resolve complex questions.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+
+                    <div>
+                        <span class="panel-label">CUSTOMER SUPPORT</span>
+                        <h3>Immigration Call Center Specialist</h3>
+                        <h4>CSC / U.S. Citizenship and Immigration Services</h4>
+                        <p class="resume-date">2008 – 2016</p>
+
+                        <ul>
+                            <li>
+                                Assisted applicants by phone and TTY with case-related
+                                questions, documentation processes, and general service information.
+                            </li>
+
+                            <li>
+                                Used government case-management systems and handled
+                                confidential applicant information in accordance with
+                                privacy and security procedures.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="resume-section">
+
+            <div class="section-heading">
+                <span>04</span>
+                <h2>Education & Certifications</h2>
+            </div>
+
+            <div class="resume-skills-grid">
+
+                <article class="skill-panel">
+                    <span class="panel-label">CERTIFICATION</span>
+                    <h3>CS50: Introduction to Computer Science</h3>
+                    <p>Harvard University</p>
+                    <span class="resume-date">Completed 2025</span>
+                </article>
+
+                <article class="skill-panel">
+                    <span class="panel-label">EDUCATION</span>
+                    <h3>Bachelor of Science</h3>
+                    <p>Union College</p>
+                    <span class="resume-date">In Progress</span>
+                </article>
+
+                <article class="skill-panel">
+                    <span class="panel-label">CERTIFICATION</span>
+                    <h3>Full-Stack Web Development</h3>
+                    <p>Code:You</p>
+                    <span class="resume-date">December 2025</span>
+                </article>
+
+                <article class="skill-panel">
+                    <span class="panel-label">ONLINE COURSEWORK</span>
+                    <h3>Responsive Web Design</h3>
+                    <p>freeCodeCamp</p>
+                    <span class="resume-date">2023</span>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- PROJECT EXPERIENCE -->
+        <section class="resume-section">
+
+            <div class="section-heading">
+                <span>05</span>
+                <h2>Selected Development Projects</h2>
+            </div>
+
+            <div class="resume-project-grid">
+
+                <article class="resume-project-card">
+                    <span class="panel-label">REACT APPLICATION</span>
+                    <h3>Sunshine HVAC Service Portal</h3>
+                    <p>
+                        Developing a service-ticket application with login,
+                        technician-focused ticket views, and application routing.
+                    </p>
+                    <span class="project-tech">React · JavaScript · React Router</span>
+                    <a href="https://github.com/Slawson25/hvac-portal"
+                        target="_blank" rel="noopener noreferrer">
+                        View Source Code →
+                    </a>
+                </article>
+
+                <article class="resume-project-card">
+                    <span class="panel-label">PORTFOLIO PROJECT</span>
+                    <h3>Developer Command Center</h3>
+                    <p>
+                        A dashboard-inspired developer portfolio featuring
+                        project navigation and a GitHub repository explorer.
+                    </p>
+                    <span class="project-tech">HTML · CSS · JavaScript · GitHub API</span>
+                    <a href="https://github.com/Slawson25/slawson25.github.io"
+                        target="_blank" rel="noopener noreferrer">
+                        View Source Code →
+                    </a>
+                </article>
+
+                <article class="resume-project-card">
+                    <span class="panel-label">E-COMMERCE PROJECT</span>
+                    <h3>Clothing Store E-Commerce</h3>
+                    <p>
+                        A front-end storefront with product displays
+                        and interactive shopping-cart functionality.
+                    </p>
+                    <span class="project-tech">HTML · CSS · JavaScript</span>
+                    <a href="https://slawson25.github.io/E-Commerce-Page/"
+                        target="_blank" rel="noopener noreferrer">
+                        View Live Project →
+                    </a>
+                </article>
+
+                <article class="resume-project-card">
+                    <span class="panel-label">INTERACTIVE GAME</span>
+                    <h3>Peter Rabbit Card Flip Game</h3>
+                    <p>
+                        An interactive matching game featuring JavaScript-driven
+                        behavior and CSS animations.
+                    </p>
+                    <span class="project-tech">HTML · CSS · JavaScript</span>
+                    <a href="https://card-flip-game-sepia.vercel.app/"
+                        target="_blank" rel="noopener noreferrer">
+                        View Live Project →
+                    </a>
+                </article>
+
+                <article class="resume-project-card">
+                    <span class="panel-label">FRONT-END PROJECT</span>
+                    <h3>Disney Streaming Service UI</h3>
+                    <p>
+                        A responsive streaming-service interface concept
+                        built as a front-end development project.
+                    </p>
+                    <span class="project-tech">HTML · CSS · JavaScript</span>
+                    <a href="https://slawson25.github.io/final-project/"
+                        target="_blank" rel="noopener noreferrer">
+                        View Live Project →
+                    </a>
+                </article>
+
+            </div>
+
+            <a href="projects.html" class="all-projects-link">
+                Open Full Project Directory →
+            </a>
+
+        </section>
+
+        <footer class="resume-footer">
+            <span>DEVELOPER COMMAND CENTER</span>
+            <span>SHAWN LAWSON // PROFILE FILE</span>
+        </footer>
+
+    </main>
+
+</body>
 </html>
